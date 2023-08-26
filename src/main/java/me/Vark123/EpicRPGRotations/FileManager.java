@@ -11,9 +11,13 @@ import me.Vark123.EpicRPGRotations.ItemSystem.ItemType;
 import me.Vark123.EpicRPGRotations.ItemSystem.ItemImpl.KlanItem;
 import me.Vark123.EpicRPGRotations.ItemSystem.ItemImpl.NormalItem;
 import me.Vark123.EpicRPGRotations.ItemSystem.ItemImpl.SponsorItem;
+import me.Vark123.EpicRPGRotations.RotationSystem.Rotation;
+import me.Vark123.EpicRPGRotations.RotationSystem.RotationManager;
+import me.Vark123.EpicRPGRotations.RotationSystem.RotationType;
 
 public final class FileManager {
 
+	private static final File config = new File(Main.getInst().getDataFolder(), "config.yml");
 	private static final File normalRotations = new File(Main.getInst().getDataFolder(), "rotations-normal.yml");
 	private static final File sponsorRotations = new File(Main.getInst().getDataFolder(), "rotations-sponsor.yml");
 	private static final File klanRotations = new File(Main.getInst().getDataFolder(), "rotations-klan.yml");
@@ -32,6 +36,8 @@ public final class FileManager {
 		loadItems(normalRotations);
 		loadItems(sponsorRotations);
 		loadItems(klanRotations);
+		
+		loadRotations();
 	}
 	
 	private static void loadItems(File file) {
@@ -58,6 +64,23 @@ public final class FileManager {
 					return;
 			}
 			ItemManager.get().registerItem(item);
+		});
+	}
+	
+	private static void loadRotations() {
+		YamlConfiguration fYml = YamlConfiguration.loadConfiguration(config);
+		ConfigurationSection section = fYml.getConfigurationSection("rotations");
+		if(section == null)
+			return;
+		section.getKeys(false).forEach(key -> {
+			String rotationId = section.getString(key+".id");
+			String rotationDate = section.getString(key+".date");
+			String rotationHour = section.getString(key+".hour");
+			RotationType rotationType = RotationType.valueOf(section.getString(key+".type","NORMAL").toUpperCase());
+			String rotationFile = section.getString(key+".file");
+			
+			Rotation rotation = new Rotation(rotationId, rotationDate, rotationHour, rotationType, rotationFile);
+			RotationManager.get().registerRotation(rotation);
 		});
 	}
 	

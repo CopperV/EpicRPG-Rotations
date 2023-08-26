@@ -19,12 +19,12 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		inst = this;
 		
+		CalendarEvents calend = (CalendarEvents) Bukkit.getPluginManager().getPlugin("CalendarEvents");
+		calendar = calend.getApi();
+		
 		ListenerManager.registerListeners();
 		CommandManager.setExecutors();
 		FileManager.init();
-		
-		CalendarEvents calend = (CalendarEvents) Bukkit.getPluginManager().getPlugin("CalendarEvents");
-		calendar = calend.getApi();
 	}
 
 	@Override
