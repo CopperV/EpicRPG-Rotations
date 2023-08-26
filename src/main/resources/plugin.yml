@@ -1,0 +1,10 @@
+name: EpicRPGRotations
+version: 2.0.0-ALPHA
+main: me.Vark123.EpicRPGRotations.Main
+author: Vark123
+depend: [ChestCommands,MythicMobs,Vault,PlaceholderAPI,CalendarEvents,NBTAPI]
+api-version: 1.18
+
+commands:
+  epicrpgrotate:
+    aliases: [rpgrot, rpgrotation, erpgrot, erpgrotation, epicrpgrot, epirpgrotation]
