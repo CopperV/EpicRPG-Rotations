@@ -1,8 +1,7 @@
 package me.Vark123.EpicRPGRotations.ItemSystem;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -41,7 +40,7 @@ public final class ItemManager {
 		}
 	}
 	
-	public Collection<AItem> getRandomItems(int amount, ItemType type) {
+	public List<AItem> getRandomItems(int amount, ItemType type) {
 		List<AItem> pick;
 		switch(type) {
 			case NORMAL:
@@ -62,7 +61,7 @@ public final class ItemManager {
 			return pick;
 		
 		Random rand = new Random();
-		Collection<AItem> toReturn = new HashSet<>();
+		List<AItem> toReturn = new LinkedList<>();
 		while(amount > 0) {
 			AItem random = pick.get(rand.nextInt(pick.size()));
 			if(toReturn.contains(random))
