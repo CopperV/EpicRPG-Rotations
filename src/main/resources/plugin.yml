@@ -1,5 +1,5 @@
 name: EpicRPGRotations
-version: 2.0.0
+version: 2.0.1
 main: me.Vark123.EpicRPGRotations.Main
 author: Vark123
 depend: [ChestCommands,MythicMobs,Vault,PlaceholderAPI,CalendarEvents,NBTAPI]
