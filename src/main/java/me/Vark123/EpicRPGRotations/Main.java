@@ -21,7 +21,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		inst = this;
 		
-		CalendarEvents calend = (CalendarEvents) Bukkit.getPluginManager().getPlugin("CalendarEvents");
+		CalendarEvents calend = (CalendarEvents) Bukkit.getPluginManager().getPlugin("EpicCalendarEvents");
 		calendar = calend.getApi();
 		
 		chestCommands = Bukkit.getPluginManager().getPlugin("ChestCommands");

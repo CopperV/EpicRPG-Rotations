@@ -1,9 +1,9 @@
 name: EpicRPGRotations
-version: 2.0.2
+version: 2.0.3
 main: me.Vark123.EpicRPGRotations.Main
 author: Vark123
-depend: [ChestCommands,MythicMobs,Vault,PlaceholderAPI,CalendarEvents,NBTAPI]
-api-version: 1.18
+depend: [ChestCommands,MythicMobs,Vault,PlaceholderAPI,EpicCalendarEvents,NBTAPI]
+api-version: 1.21
 
 commands:
   epicrpgrotate:
